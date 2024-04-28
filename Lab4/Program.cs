@@ -38,24 +38,27 @@ class Program
         //hashTable1.Remove("abcde");
         //hashTable1.PrintHashTable();
 
-        //HashTableChain hashTable2 = new HashTableChain();
-        //int count = 15;
-        //for (int i = 0; i < count; i++)
-        //{
-        //    KeyValuePair<string, int> pair = GenerateRandomKeyValuePair();
-        //    hashTable2.Add(pair.Key, pair.Value);
-        //}
+        HashTableChain hashTable2 = new HashTableChain();
+        Stopwatch stopwatch = Stopwatch.StartNew();
+        int count = 51200;
+        for (int i = 0; i < count; i++)
+        {
+            KeyValuePair<string, int> pair = GenerateRandomKeyValuePair();
+            hashTable2.Add(pair.Key, pair.Value);
+        }
+        stopwatch.Stop();
+        Console.WriteLine($"Хэш таблица из {count} элементов составлена за {stopwatch.Elapsed.TotalSeconds}");
         //hashTable2.PrintHashTable();
 
 
-        BloomFilter filter = new BloomFilter(100, 3);
-        filter.Add("apple");
-        filter.Add("banana");
-        filter.Add("orange");
-        Console.WriteLine(filter.Contains("apple"));   // true
-        Console.WriteLine(filter.Contains("banana"));  // true
-        Console.WriteLine(filter.Contains("orange"));  // true
-        Console.WriteLine(filter.Contains("grape"));   // false
-        Console.WriteLine(filter.Contains("melon"));   // false
+        //BloomFilter filter = new BloomFilter(100, 3);
+        //filter.Add("apple");
+        //filter.Add("banana");
+        //filter.Add("orange");
+        //Console.WriteLine(filter.Contains("apple"));   // true
+        //Console.WriteLine(filter.Contains("banana"));  // true
+        //Console.WriteLine(filter.Contains("orange"));  // true
+        //Console.WriteLine(filter.Contains("grape"));   // false
+        //Console.WriteLine(filter.Contains("melon"));   // false
     }
 }
